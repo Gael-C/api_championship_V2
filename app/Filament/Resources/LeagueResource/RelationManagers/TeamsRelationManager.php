@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Filament\Resources\TeamResource\RelationManagers;
+namespace App\Filament\Resources\LeagueResource\RelationManagers;
 
-use App\Models\Team;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
@@ -11,9 +10,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class LeaguesRelationManager extends RelationManager
+class TeamsRelationManager extends RelationManager
 {
-    protected static string $relationship = 'leagues';
+    protected static string $relationship = 'teams';
 
     public function form(Form $form): Form
     {
@@ -22,20 +21,6 @@ class LeaguesRelationManager extends RelationManager
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
-                    ->required()
-                    ->maxLength(10),
-                Forms\Components\TextInput::make('creation')
-                    ->required()
-                    ->maxLength(4),
-                Forms\Components\Select::make('last_champion')
-                    ->required()
-                    ->label('Dernier champion')
-                    ->options(Team::all()->pluck('name', 'id')),
-                Forms\Components\Select::make('most_successfull')
-                    ->required()
-                    ->label('Équipe la plus titrée')
-                    ->options(Team::all()->pluck('name', 'id')),
             ]);
     }
 

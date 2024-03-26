@@ -9,14 +9,18 @@ use App\Models\MatchWeek;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\MatchWeekResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\MatchWeekResource\RelationManagers;
+use Filament\Forms\Components\Select;
 
 class MatchWeekResource extends Resource
 {
     protected static ?string $model = MatchWeek::class;
+
+    protected static ?string $modelLabel = 'Journée';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -24,7 +28,13 @@ class MatchWeekResource extends Resource
     {
         return $form
             ->schema([
-                //
+                TextInput::make('match_week_number')
+                    ->label('Journée')
+                    ->required(),
+                Select::make('season_id')
+                    ->label('Saison')
+                    ->relationship('seasons', 'season')
+                    ->required(),
             ]);
     }
 
@@ -33,9 +43,8 @@ class MatchWeekResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('match_week_number')
-                ->searchable(),
+                    ->searchable(),
                 TextColumn::make('season_id'),
-                TextColumn::make('created_at')
             ])
             ->filters([
                 //

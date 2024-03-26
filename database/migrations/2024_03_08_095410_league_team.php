@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('league_team', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('team_id')->references('id')->on('teams');
-            $table->foreignId('league_id')->references('id')->on('leagues');
+            $table->unsignedBigInteger('team_id');
+            $table->unsignedBigInteger('league_id');
             $table->timestamps();
         });
     }

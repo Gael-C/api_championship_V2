@@ -25,6 +25,6 @@ class Matchs extends Model
     }
 
     public function matchWeeks() {
-        return $this->belongsToMany(MatchWeek::class)->select('matches_id', 'match_week_number', 'seasons_id');
+        return $this->belongsToMany(MatchWeek::class)->select('matchs_id', 'match_week_number', 'match_week_id');
     }
 }

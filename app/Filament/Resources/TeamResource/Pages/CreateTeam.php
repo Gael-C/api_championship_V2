@@ -15,7 +15,7 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateTeam extends CreateRecord
 {
-    use Createrecord\Concerns\HasWizard;
+    // use Createrecord\Concerns\HasWizard;
     protected static string $resource = TeamResource::class;
 
     protected function getSteps(): array 
@@ -35,6 +35,11 @@ class CreateTeam extends CreateRecord
                     ->required(), 
                 TextInput::make('capacity')
                     ->required(), 
+                FileUpload::make('logo')
+                    ->nullable(),
+                ]),
+            Step::make('Réseaux sociaux')
+                ->schema([
                 TextInput::make('website')
                     ->required(), 
                 TextInput::make('facebook')
@@ -45,11 +50,14 @@ class CreateTeam extends CreateRecord
                     ->nullable(), 
                 TextInput::make('youtube')
                     ->nullable(), 
-                FileUpload::make('logo')
-                    ->nullable(),
+                ]),
+            Step::make('Championnat')
+                ->schema([
                 Select::make('leagues')
                     ->relationship(name:'leagues ', titleAttribute:'name')
-            ])
+                    ->preload()
+                ])
+
  
         ]; 
     }
