@@ -24,7 +24,7 @@ class Team extends Model
 
     public function leagues()
     {
-        return $this->belongsToMany(League::class)->withTimestamps() ;
+        return $this->belongsToMany(League::class)->select('name','slug')->withTimestamps() ;
     }
 
     public function classment()
