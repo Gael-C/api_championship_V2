@@ -1,12 +1,12 @@
 <template>
-    <article class="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300">
+    <article class="rounded-xl bg-gris_clair p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300">
         <a :href="route('league.show', id)">
             <div class="relative flex items-center overflow-hidden rounded-xl">
                 <img :src="'http://localhost:8000/storage/'+logo" alt="Logo">
             </div>
             <div class=" mt-1 p-2">
                 <div class="mt-3 items-center justify-between">
-                    <p class="text-center font-bold text-blue-500">{{ name }}</p>
+                    <p class="text-center space-mono-regular text-bleu">{{ name }}</p>
                 </div>
             </div>
         </a>

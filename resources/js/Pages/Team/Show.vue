@@ -1,15 +1,16 @@
 <template>
+  <NavBar></NavBar>
     <div class="md:flex items-center justify-center py-12 2xl:px-20 md:px-6 px-4" v-if="Team">
     
       <div class="xl:w-2/6 lg:w-2/5 w-80 md:block hidden">
         <img class="w-6/12 mx-auto" alt="image of a team logo" :src="'http://localhost:8000/storage/'+Team.logo" />
         <br>
         <div class="overflow-x-auto">
-          <table class="text-sm divide-y divide-gray-100 w-full"  v-for="clasmt in Team.classment">
+          <table class="text-sm divide-y divide-gray-100 w-full space-mono-regular"  v-for="clasmt in Team.classment">
               <tr>
-                <th class="text-center">{{ getLeagueName(clasmt.league_id) }}</th>
+                <th colspan="9" class="text-center py-2">{{ getLeagueName(clasmt.league_id) }}</th>
               </tr>
-                <tr class="border-b font-medium dark:border-neutral-500">
+                <tr class="border-b font-space_mono dark:border-neutral-500">
                   <th class="py-2 px-4 border-b">#</th>
                   <th class="py-2 px-4 border-b">Pts</th>
                   <th class="py-2 px-4 border-b">B</th>
@@ -36,7 +37,7 @@
           </table>
         </div> 
         <br>
-        <select @change="getMatchWeeks($event)" class="mt-auto">
+        <select @change="getMatchWeeks($event)" class="mt-auto bg-gris_clair">
           <option value="" selected>Choisissez une journée</option>
           <option class="text-center" v-for="matchWeek in MatchWeeks" :value="matchWeek.id">{{ matchWeek.match_week_number }}</option>
         </select>
@@ -52,9 +53,9 @@
                 </tr>
                 <tbody>
                     <tr>
-                        <td class="py-2 px-4 border-b"> {{ getTeamName(match.home_team_id) }}</td>
-                        <td class="py-2 border-b">({{ match.home_team_tries }}) {{ match.home_team_result }} - {{ match.away_team_result }} ({{match.away_team_tries}})</td>
-                        <td class="py-2 px-4 border-b mx-auto">{{ getTeamName(match.away_team_id) }}</td>
+                        <td class="py-2 px-2 text-center border-b"> {{ getTeamName(match.home_team_id) }}</td>
+                        <td class="py-2 border-b">({{ match.home_team_tries }}) {{ match.home_team_result }}-{{ match.away_team_result }} ({{match.away_team_tries}})</td>
+                        <td class="py-2 px-2 text-center border-b mx-auto">{{ getTeamName(match.away_team_id) }}</td>
                     </tr>
                 </tbody>
           </table>
@@ -65,7 +66,7 @@
       </div>
       <div class="xl:w-2/5 md:w-1/2 lg:ml-8 md:ml-6 md:mt-0 mt-6">
         <div class="border-b border-gray-200 pb-6">
-          <h1 class="lg:text-2xl text-xl font-semibold lg:leading-6 leading-7 text-gray-800 dark mt-2 text-center">{{ Team.name }}</h1>
+          <h1 class="lg:text-2xl text-xl space-mono-bold lg:leading-6 leading-7 text-gray-800 dark mt-2 text-center">{{ Team.name }}</h1>
         </div>
         <detail :cle="'Surnom'" :valeur="Team.nickname"/>
         <detail :cle="'Fondation'" :valeur="Team.foundation"/>
@@ -73,7 +74,7 @@
         <detail :cle="'Capacité'" :valeur="Team.capacity"/>
         <detail :cle="'Site Web'" :valeur="Team.website"/>
         <br>
-        <h2 class="lg:text-2xl text-xl font-semibold lg:leading-6 leading-7 text-gray-800 dark mt-2 text-center">Réseaux sociaux</h2>
+        <h2 class="lg:text-2xl text-xl space-mono-bold lg:leading-6 leading-7 text-gray-800 dark mt-2 text-center">Réseaux sociaux</h2>
         <reseau v-if="Team.facebook" :cle="'Facebook'" :valeur="Team.facebook"/>
         <reseau :cle="'Twitter'" :valeur="Team.twitter"/>
         <reseau :cle="'Instagram'" :valeur="Team.instagram"/>
@@ -127,9 +128,9 @@
               </tr>
               <tbody>
                   <tr>
-                      <td class="py-2 px-4 border-b"> {{ getTeamName(match.home_team_id) }}</td>
-                      <td class="py-2 border-b">({{ match.home_team_tries }}) {{ match.home_team_result }} - {{ match.away_team_result }} ({{match.away_team_tries}})</td>
-                      <td class="py-2 px-4 border-b">{{ getTeamName(match.away_team_id) }}</td>
+                      <td class="py-2 px-2 text-center border-b"> {{ getTeamName(match.home_team_id) }}</td>
+                      <td class="py-2 border-b">({{ match.home_team_tries }}) {{ match.home_team_result }}-{{ match.away_team_result }} ({{match.away_team_tries}})</td>
+                      <td class="py-2 px-2 text-center border-b">{{ getTeamName(match.away_team_id) }}</td>
                   </tr>
               </tbody>
         </table>
@@ -141,13 +142,15 @@
     <script>
     import detail from '@/Components/Details.vue';
     import reseau from '@/Components/Reseaux.vue';
+    import NavBar from '@/Components/NavBar.vue'
     import { usePage, router } from '@inertiajs/vue3';
     
     export default {
         name: 'TeamView',
         components: {
             detail,
-            reseau
+            reseau,
+            NavBar
         },
         props: ['team', 'teams','matchWeeks'],
         data() {

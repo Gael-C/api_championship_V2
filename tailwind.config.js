@@ -13,7 +13,13 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                // sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                space_regular: ['Space-mono', 'monospace', 400,  ...defaultTheme.fontFamily.sans],
+            },
+            colors: {
+                bleu: '#3B88C3',
+                gris: '#ccd6dd',
+                gris_clair:'#e1e8ed'
             },
         },
     },
