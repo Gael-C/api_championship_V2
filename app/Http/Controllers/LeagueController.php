@@ -45,8 +45,6 @@ class LeagueController extends Controller
         $teams = Team::all();
         $matchweeks = MatchWeek::all()->load('matches');
 
-
-
         return Inertia::render('League/Show', [
             'league' => $league,
             'teams' => $teams,

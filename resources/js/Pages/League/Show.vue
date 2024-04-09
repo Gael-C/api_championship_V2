@@ -3,7 +3,7 @@
     <div class="md:flex items-start justify-center py-12 2xl:px-20 md:px-6 px-4" v-if="League">
         <div class="xl:w-2/6 lg:w-2/5 w-80 md:block hidden">
             <img class="w-6/12 mx-auto" alt="logo of the league"
-                :src="'https://api-championship.fr/public/storage/' + League.logo" />
+                :src="'/storage/' + League.logo" />
           
     <select @change="getMatchWeeks($event)" class="mt-5 space-mono-regular bg-gris_clair">
       <option value="" selected>Choisissez une journée</option>
@@ -28,7 +28,7 @@
         </div>
         <div class="md:hidden">
             <img class="w-9/12 mx-auto" alt="logo of the league"
-                :src="'https://api-championship.fr/public/storage/' + League.logo" />
+                :src="'/storage/' + League.logo" />
             <div class="flex items-center justify-between mt-3 space-x-4 md:space-x-0">
 
             </div>

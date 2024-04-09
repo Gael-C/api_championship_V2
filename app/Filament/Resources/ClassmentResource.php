@@ -84,7 +84,7 @@ class ClassmentResource extends Resource
                     ->searchable(),
                 TextColumn::make('league_id')
                     ->searchable(),
-                TextColumn::make('created_at')
+                TextColumn::make('updated_at')
             ])
             ->filters([
                 //

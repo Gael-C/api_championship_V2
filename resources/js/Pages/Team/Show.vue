@@ -3,7 +3,7 @@
     <div class="md:flex items-center justify-center py-12 2xl:px-20 md:px-6 px-4" v-if="Team">
     
       <div class="xl:w-2/6 lg:w-2/5 w-80 md:block hidden">
-        <img class="w-6/12 mx-auto" alt="image of a team logo" :src="'http://localhost:8000/storage/'+Team.logo" />
+        <img class="w-6/12 mx-auto" alt="image of a team logo" :src="'/storage/'+Team.logo" />
         <br>
         <div class="overflow-x-auto">
           <table class="text-sm divide-y divide-gray-100 w-full space-mono-regular"  v-for="clasmt in Team.classment">
@@ -62,7 +62,7 @@
         </div>
       </div>
       <div class="md:hidden">
-        <img class="w-9/12 mx-auto" alt="image of a team logo" :src="'http://localhost:8000/storage/'+Team.logo" />
+        <img class="w-9/12 mx-auto" alt="image of a team logo" :src="'/storage/'+Team.logo" />
       </div>
       <div class="xl:w-2/5 md:w-1/2 lg:ml-8 md:ml-6 md:mt-0 mt-6">
         <div class="border-b border-gray-200 pb-6">
