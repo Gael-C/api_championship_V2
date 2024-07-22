@@ -84,8 +84,8 @@
                         <option value="" selected>Choisissez une journée</option>
                         <option class="text-center" v-for="matchWeek in MatchWeeks" :value="matchWeek.id">{{ matchWeek.match_week_number }}</option>
                     </select>
-                   <table class="text-sm divide-y divide-gray-100 mt-5 w-full">
-                        <tr class="border-b font-medium dark:border-neutral-500">
+                   <table class="text-sm divide-y divide-gris mt-5 w-full">
+                        <tr class="border-b space-mono-regular dark:border-neutral-500">
                           <th class="py-2 px-4 border-b">Domicile</th>
                           <th class="py-2 px-4 border-b">Résultat</th>
                           <th class="py-2 px-4 border-b">Extérieur</th>

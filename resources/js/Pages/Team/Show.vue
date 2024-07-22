@@ -86,7 +86,7 @@
               <tr>
                 <th>{{ getLeagueName(clasmt.league_id) }}</th>
               </tr>
-               <tr class="border-b font-medium dark:border-neutral-500">
+               <tr class="border-b space-mono-regular dark:border-neutral-500">
                   <th class="py-2 px-4 border-b">#</th>
                   <th class="py-2 px-4 border-b">Pts</th>
                   <th class="py-2 px-4 border-b">B</th>
@@ -121,7 +121,7 @@
               <tr>
                 <th>{{ match.match_week_number }}</th>
               </tr>
-                <tr class="border-b font-medium dark:border-neutral-500">
+                <tr class="border-b space-mono-regular dark:border-neutral-500">
                   <th class="py-2 px-4 border-b">Domicile</th>
                   <th class="py-2 px-4 border-b">Résultat</th>
                   <th class="py-2 px-4 border-b">Extérieur</th>
